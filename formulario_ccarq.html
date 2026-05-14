@@ -489,7 +489,7 @@ input[type=range]::-webkit-slider-thumb {
     <div class="err-msg" id="err-7">Por favor ingresa la ciudad y estado.</div>
     <div class="nav">
       <button class="btn-back" onclick="back(7)">← Atrás</button>
-      <button class="btn-next" onclick="next(7)">Continuar →</button>
+      <button class="btn-next" onclick="answers.ciudad=document.getElementById('f-ciudad').value.trim(); if(answers.ciudad.length>1){showStep(8)}else{document.getElementById('err-7').classList.add('show')}">Continuar →</button>
     </div>
   </div>
 
@@ -504,7 +504,7 @@ input[type=range]::-webkit-slider-thumb {
     <div class="err-msg" id="err-8">Por favor ingresa la dirección o zona.</div>
     <div class="nav">
       <button class="btn-back" onclick="back(8)">← Atrás</button>
-      <button class="btn-next" onclick="next(8)">Continuar →</button>
+      <button class="btn-next" onclick="answers.direccion=document.getElementById('f-direccion').value.trim(); if(answers.direccion.length>1){showStep(9)}else{document.getElementById('err-8').classList.add('show')}">Continuar →</button>
     </div>
   </div>
 
