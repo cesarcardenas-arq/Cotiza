@@ -793,32 +793,29 @@ function submit() {
   document.getElementById('progress').style.width = '100%';
   document.getElementById('cur-step').textContent = TOTAL;
 
-  // Build Tally URL with all answers as query params
-  const params = new URLSearchParams({
-    'Cual es tu nombre completo': answers.nombre || '',
-    'Cual es tu whatsapp': answers.whatsapp || '',
-    'Cual es tu email': answers.email || '',
-    'Que tipo de servicio necesitas': answers.step4 || '',
-    'Que tipo de proyecto es': answers.step5 || '',
-    'Ya cuentas con el espacio terreno o inmueble': answers.step6 || '',
-    'En que ciudad y estado se encuentra el proyecto': answers.ciudad || '',
-    'Cual es la direccion o zona del proyecto': answers.direccion || '',
-    'Cuantos metros cuadrados aproximados tiene el proyecto': answers.m2 || '',
-    'En que etapa se encuentra el proyecto actualmente': answers.step10 || '',
-    'Has trabajado anteriormente con un arquitecto o despacho de diseno': answers.step11 || '',
-    'Cual es el presupuesto estimado para construccion o remodelacion': answers.step12 || '',
-    'Cuando te gustaria iniciar el proyecto': answers.step13 || '',
-    'Cuentas con plano o medidas del lugar': answers.step14 || '',
-    'Como nos conociste': answers.step15 || '',
-    'Hay algo mas que quieras contarnos sobre tu proyecto': answers.notas || '',
-  });
-
-  // Submit to Tally via hidden iframe
-  const iframe = document.createElement('iframe');
-  iframe.style.display = 'none';
-  iframe.src = 'https://tally.so/r/BzjzPe?' + params.toString();
-  document.body.appendChild(iframe);
-  setTimeout(() => document.body.removeChild(iframe), 5000);
+  // Send to Cloudflare Worker backend
+  fetch('https://ccarq-form.javier-cesar.workers.dev/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      nombre:   answers.nombre    || '',
+      whatsapp: answers.whatsapp  || '',
+      email:    answers.email     || '',
+      step4:    answers.step4     || '',
+      step5:    answers.step5     || '',
+      step6:    answers.step6     || '',
+      ciudad:   answers.ciudad    || '',
+      direccion:answers.direccion || '',
+      m2:       answers.m2        || '',
+      step10:   answers.step10    || '',
+      step11:   answers.step11    || '',
+      step12:   answers.step12    || '',
+      step13:   answers.step13    || '',
+      step14:   answers.step14    || '',
+      step15:   answers.step15    || '',
+      notas:    answers.notas     || '',
+    })
+  }).catch(err => console.log('Worker error:', err));
 }
 
 // Enter key support
