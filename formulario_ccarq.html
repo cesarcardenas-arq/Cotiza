@@ -22,9 +22,9 @@
   --green-light: #D8EFE4;
   --error: #C0392B;
 }
- 
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
- 
+
 body {
   font-family: 'Jost', sans-serif;
   background: var(--white);
@@ -34,7 +34,7 @@ body {
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
 }
- 
+
 /* ── Progress bar ── */
 .progress-bar {
   position: fixed;
@@ -44,7 +44,7 @@ body {
   transition: width .4s cubic-bezier(.4,0,.2,1);
   z-index: 100;
 }
- 
+
 /* ── Header ── */
 .header {
   padding: 24px 40px;
@@ -79,7 +79,7 @@ body {
   color: var(--navy);
   font-weight: 500;
 }
- 
+
 /* ── Main layout ── */
 .form-wrap {
   flex: 1;
@@ -89,7 +89,7 @@ body {
   padding: 40px 24px;
   background: var(--white);
 }
- 
+
 /* ── Step ── */
 .step {
   display: none;
@@ -98,12 +98,12 @@ body {
   animation: fadeUp .35s ease;
 }
 .step.active { display: block; }
- 
+
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
- 
+
 .step-tag {
   font-size: 10px;
   letter-spacing: .18em;
@@ -126,7 +126,7 @@ body {
   margin-bottom: 28px;
   line-height: 1.6;
 }
- 
+
 /* ── Text inputs ── */
 .input-wrap { margin-bottom: 16px; }
 .input-wrap input,
@@ -151,12 +151,12 @@ body {
   background: var(--white);
 }
 .input-wrap textarea { resize: none; height: 110px; line-height: 1.6; }
- 
+
 /* ── Option cards ── */
 .options { display: grid; gap: 9px; margin-bottom: 8px; }
 .options.cols2 { grid-template-columns: 1fr 1fr; }
 .options.cols3 { grid-template-columns: 1fr 1fr 1fr; }
- 
+
 .opt {
   border: 1.5px solid var(--gris-light);
   border-radius: 5px;
@@ -171,7 +171,7 @@ body {
 .opt-title { font-size: 13.5px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
 .opt-sub { font-size: 11px; color: var(--gris); line-height: 1.4; }
 .opt.selected .opt-title { color: var(--navy); }
- 
+
 /* ── Simple radio options ── */
 .opt-simple {
   display: flex;
@@ -207,7 +207,7 @@ body {
   border-radius: 50%;
   background: white;
 }
- 
+
 /* ── Range slider ── */
 .range-wrap { margin-bottom: 8px; }
 .range-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--gris); margin-top: 10px; }
@@ -235,7 +235,7 @@ input[type=range]::-webkit-slider-thumb {
   border: 3px solid white;
   box-shadow: 0 0 0 1.5px var(--navy);
 }
- 
+
 /* ── Navigation ── */
 .nav {
   display: flex;
@@ -274,7 +274,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 .btn-back:hover { color: var(--ink); }
 .btn-back.hidden { visibility: hidden; }
- 
+
 /* ── Thank you ── */
 .thankyou {
   display: none;
@@ -307,11 +307,11 @@ input[type=range]::-webkit-slider-thumb {
   margin-bottom: 28px;
 }
 .ty-detail { font-size: 11px; color: var(--gris); letter-spacing: .04em; }
- 
+
 /* ── Error ── */
 .err-msg { font-size: 11px; color: var(--error); margin-top: 6px; display: none; }
 .err-msg.show { display: block; }
- 
+
 /* ── Footer ── */
 .footer {
   padding: 14px 40px;
@@ -324,7 +324,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 .footer-tag { font-size: 8px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
 .footer-ig { font-size: 10px; color: var(--gris); }
- 
+
 @media(max-width:600px) {
   .header { padding: 18px 20px; }
   .footer { padding: 12px 20px; }
@@ -335,9 +335,9 @@ input[type=range]::-webkit-slider-thumb {
 </style>
 </head>
 <body>
- 
+
 <div class="progress-bar" id="progress"></div>
- 
+
 <div class="header">
   <div>
     <div class="logo-name">César Cárdenas</div>
@@ -345,9 +345,9 @@ input[type=range]::-webkit-slider-thumb {
   </div>
   <div class="step-counter">Pregunta <span id="cur-step">1</span> de <span id="tot-steps">16</span></div>
 </div>
- 
+
 <div class="form-wrap">
- 
+
   <!-- ── STEP 1: Nombre ── -->
   <div class="step active" id="s1">
     <div class="step-tag">Datos de contacto</div>
@@ -362,7 +362,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(1)">Continuar →</button>
     </div>
   </div>
- 
+
   <!-- ── STEP 2: WhatsApp ── -->
   <div class="step" id="s2">
     <div class="step-tag">Datos de contacto</div>
@@ -377,7 +377,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(2)">Continuar →</button>
     </div>
   </div>
- 
+
   <!-- ── STEP 3: Email ── -->
   <div class="step" id="s3">
     <div class="step-tag">Datos de contacto</div>
@@ -392,7 +392,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(3)">Continuar →</button>
     </div>
   </div>
- 
+
   <!-- ── STEP 4: Tipo de servicio ── -->
   <div class="step" id="s4">
     <div class="step-tag">Tu proyecto</div>
@@ -422,7 +422,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(4)">Continuar →</button>
     </div>
   </div>
- 
+
   <!-- ── STEP 5: Tipo de proyecto ── -->
   <div class="step" id="s5">
     <div class="step-tag">Tu proyecto</div>
@@ -460,7 +460,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(5)">Continuar →</button>
     </div>
   </div>
- 
+
   <!-- ── STEP 6: ¿Ya tienes el espacio? ── -->
   <div class="step" id="s6">
     <div class="step-tag">Tu proyecto</div>
@@ -477,7 +477,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(6)">Continuar →</button>
     </div>
   </div>
- 
+
   <!-- ── STEP 7: Ciudad / Estado ── -->
   <div class="step" id="s7">
     <div class="step-tag">Tu proyecto</div>
@@ -488,11 +488,11 @@ input[type=range]::-webkit-slider-thumb {
     </div>
     <div class="err-msg" id="err-7">Por favor ingresa la ciudad y estado.</div>
     <div class="nav">
-      <button class="btn-back" onclick="back(9)">← Atrás</button>
-      <button class="btn-next" onclick="next(9)">Continuar →</button>
+      <button class="btn-back" onclick="back(7)">← Atrás</button>
+      <button class="btn-next" onclick="next(7)">Continuar →</button>
     </div>
   </div>
- 
+
   <!-- ── STEP 8: Dirección ── -->
   <div class="step" id="s8">
     <div class="step-tag">Tu proyecto</div>
@@ -504,10 +504,10 @@ input[type=range]::-webkit-slider-thumb {
     <div class="err-msg" id="err-8">Por favor ingresa la dirección o zona.</div>
     <div class="nav">
       <button class="btn-back" onclick="back(8)">← Atrás</button>
-      <button class="btn-next" onclick="next(10)">Continuar →</button>
+      <button class="btn-next" onclick="next(8)">Continuar →</button>
     </div>
   </div>
- 
+
   <!-- ── STEP 9: Metros cuadrados ── -->
   <div class="step" id="s9">
     <div class="step-tag">Tu proyecto</div>
@@ -524,7 +524,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="answers.m2=document.getElementById('f-m2').value; showStep(10)">Continuar →</button>
     </div>
   </div>
- 
+
   <!-- ── STEP 8: Etapa actual ── -->
   <div class="step" id="s10">
     <div class="step-tag">Tu proyecto</div>
@@ -541,7 +541,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(10)">Continuar →</button>
     </div>
   </div>
- 
+
   <!-- ── STEP 9: Experiencia previa ── -->
   <div class="step" id="s11">
     <div class="step-tag">Tu experiencia</div>
@@ -556,7 +556,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(11)">Continuar →</button>
     </div>
   </div>
- 
+
   <!-- ── STEP 10: Presupuesto ── -->
   <div class="step" id="s12">
     <div class="step-tag">Tu inversión</div>
@@ -576,7 +576,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(12)">Continuar →</button>
     </div>
   </div>
- 
+
   <!-- ── STEP 11: Plazo ── -->
   <div class="step" id="s13">
     <div class="step-tag">Tu inversión</div>
@@ -594,7 +594,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(13)">Continuar →</button>
     </div>
   </div>
- 
+
   <!-- ── STEP 12: Planos ── -->
   <div class="step" id="s14">
     <div class="step-tag">Documentación</div>
@@ -611,7 +611,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(14)">Continuar →</button>
     </div>
   </div>
- 
+
   <!-- ── STEP 13: Cómo nos conoció ── -->
   <div class="step" id="s15">
     <div class="step-tag">Último paso</div>
@@ -648,7 +648,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(15)">Continuar →</button>
     </div>
   </div>
- 
+
   <!-- ── STEP 14: Comentarios ── -->
   <div class="step" id="s16">
     <div class="step-tag">Casi listo</div>
@@ -664,7 +664,7 @@ input[type=range]::-webkit-slider-thumb {
       </button>
     </div>
   </div>
- 
+
   <!-- ── THANK YOU ── -->
   <div class="thankyou" id="thankyou">
     <div class="ty-icon">✦</div>
@@ -678,25 +678,25 @@ input[type=range]::-webkit-slider-thumb {
       Ig. @cesarcardenas_arq · hello@cesarcardenasarq.com
     </div>
   </div>
- 
+
 </div>
- 
+
 <div class="footer">
   <div class="footer-tag">Bring me all your dreams you dreamer.</div>
   <div class="footer-ig">Ig. @cesarcardenas_arq</div>
 </div>
- 
+
 <script>
 const TOTAL = 16;
 let current = 1;
 const answers = {};
- 
+
 function updateProgress() {
   const pct = ((current - 1) / TOTAL) * 100;
   document.getElementById('progress').style.width = pct + '%';
   document.getElementById('cur-step').textContent = current;
 }
- 
+
 function showStep(n) {
   document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
   const el = document.getElementById('s' + n);
@@ -705,11 +705,11 @@ function showStep(n) {
   updateProgress();
   window.scrollTo(0, 0);
 }
- 
+
 function validate(n) {
   const err = document.getElementById('err-' + n);
   let ok = true;
- 
+
   if (n === 1) {
     const v = document.getElementById('f-nombre').value.trim();
     ok = v.length > 1;
@@ -736,23 +736,23 @@ function validate(n) {
   } else if ([4,5,6,10,11,12,13,14,15].includes(n)) {
     ok = !!answers['step' + n];
   }
- 
+
   if (err) {
     if (!ok) err.classList.add('show');
     else err.classList.remove('show');
   }
   return ok;
 }
- 
+
 function next(n) {
   if (!validate(n)) return;
   if (n < TOTAL) showStep(n + 1);
 }
- 
+
 function back(n) {
   if (n > 1) showStep(n - 1);
 }
- 
+
 function selectOpt(step, el, val) {
   document.querySelectorAll('#opts-' + step + ' .opt').forEach(o => o.classList.remove('selected'));
   el.classList.add('selected');
@@ -762,7 +762,7 @@ function selectOpt(step, el, val) {
   // Auto-advance after short delay
   setTimeout(() => next(step), 260);
 }
- 
+
 function selectSimple(step, el, val) {
   document.querySelectorAll('#opts-' + step + ' .opt-simple').forEach(o => o.classList.remove('selected'));
   el.classList.add('selected');
@@ -771,24 +771,24 @@ function selectSimple(step, el, val) {
   if (err) err.classList.remove('show');
   setTimeout(() => next(step), 260);
 }
- 
+
 function updateRange(val) {
   const label = val >= 1500 ? '1,500 m²+' : val + ' m²';
   document.getElementById('range-val').textContent = label;
   answers['m2'] = val;
 }
- 
+
 function submit() {
   answers['notas'] = document.getElementById('f-notas').value.trim();
   if(document.getElementById('f-ciudad')) answers['ciudad'] = document.getElementById('f-ciudad').value.trim();
   if(document.getElementById('f-direccion')) answers['direccion'] = document.getElementById('f-direccion').value.trim();
- 
+
   // Show thank you immediately — don't wait for Tally
   document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
   document.getElementById('thankyou').classList.add('active');
   document.getElementById('progress').style.width = '100%';
   document.getElementById('cur-step').textContent = TOTAL;
- 
+
   // Send to Tally
   const tallyData = {
     "¿Cuál es tu nombre completo?": answers.nombre || '',
@@ -808,7 +808,7 @@ function submit() {
     "¿Cómo nos conociste?": answers.step15 || '',
     "¿Algo más que quieras contarnos?": answers.notas || '',
   };
- 
+
   fetch('https://tally.so/r/BzjzPe', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -816,7 +816,7 @@ function submit() {
     mode: 'no-cors'
   }).catch(err => console.log('Tally error:', err));
 }
- 
+
 // Enter key support
 document.addEventListener('keydown', e => {
   if (e.key === 'Enter' && current <= TOTAL) {
@@ -827,11 +827,10 @@ document.addEventListener('keydown', e => {
     }
   }
 });
- 
+
 // Init
 updateProgress();
 updateRange(300);
 </script>
 </body>
 </html>
- 
