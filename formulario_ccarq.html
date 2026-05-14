@@ -5,13 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cotiza tu proyecto — César Cárdenas Arquitectos</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<style><!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cotiza tu proyecto — César Cárdenas Arquitectos</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --navy: #1B2B4B;
@@ -29,9 +22,9 @@
   --green-light: #D8EFE4;
   --error: #C0392B;
 }
-
+ 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
 body {
   font-family: 'Jost', sans-serif;
   background: var(--white);
@@ -41,7 +34,7 @@ body {
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
 }
-
+ 
 /* ── Progress bar ── */
 .progress-bar {
   position: fixed;
@@ -51,7 +44,7 @@ body {
   transition: width .4s cubic-bezier(.4,0,.2,1);
   z-index: 100;
 }
-
+ 
 /* ── Header ── */
 .header {
   padding: 24px 40px;
@@ -86,7 +79,7 @@ body {
   color: var(--navy);
   font-weight: 500;
 }
-
+ 
 /* ── Main layout ── */
 .form-wrap {
   flex: 1;
@@ -96,7 +89,7 @@ body {
   padding: 40px 24px;
   background: var(--white);
 }
-
+ 
 /* ── Step ── */
 .step {
   display: none;
@@ -105,12 +98,12 @@ body {
   animation: fadeUp .35s ease;
 }
 .step.active { display: block; }
-
+ 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
+ 
 .step-tag {
   font-size: 10px;
   letter-spacing: .18em;
@@ -133,7 +126,7 @@ body {
   margin-bottom: 28px;
   line-height: 1.6;
 }
-
+ 
 /* ── Text inputs ── */
 .input-wrap { margin-bottom: 16px; }
 .input-wrap input,
@@ -158,12 +151,12 @@ body {
   background: var(--white);
 }
 .input-wrap textarea { resize: none; height: 110px; line-height: 1.6; }
-
+ 
 /* ── Option cards ── */
 .options { display: grid; gap: 9px; margin-bottom: 8px; }
 .options.cols2 { grid-template-columns: 1fr 1fr; }
 .options.cols3 { grid-template-columns: 1fr 1fr 1fr; }
-
+ 
 .opt {
   border: 1.5px solid var(--gris-light);
   border-radius: 5px;
@@ -178,7 +171,7 @@ body {
 .opt-title { font-size: 13.5px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
 .opt-sub { font-size: 11px; color: var(--gris); line-height: 1.4; }
 .opt.selected .opt-title { color: var(--navy); }
-
+ 
 /* ── Simple radio options ── */
 .opt-simple {
   display: flex;
@@ -214,7 +207,7 @@ body {
   border-radius: 50%;
   background: white;
 }
-
+ 
 /* ── Range slider ── */
 .range-wrap { margin-bottom: 8px; }
 .range-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--gris); margin-top: 10px; }
@@ -242,7 +235,7 @@ input[type=range]::-webkit-slider-thumb {
   border: 3px solid white;
   box-shadow: 0 0 0 1.5px var(--navy);
 }
-
+ 
 /* ── Navigation ── */
 .nav {
   display: flex;
@@ -281,7 +274,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 .btn-back:hover { color: var(--ink); }
 .btn-back.hidden { visibility: hidden; }
-
+ 
 /* ── Thank you ── */
 .thankyou {
   display: none;
@@ -314,11 +307,11 @@ input[type=range]::-webkit-slider-thumb {
   margin-bottom: 28px;
 }
 .ty-detail { font-size: 11px; color: var(--gris); letter-spacing: .04em; }
-
+ 
 /* ── Error ── */
 .err-msg { font-size: 11px; color: var(--error); margin-top: 6px; display: none; }
 .err-msg.show { display: block; }
-
+ 
 /* ── Footer ── */
 .footer {
   padding: 14px 40px;
@@ -331,7 +324,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 .footer-tag { font-size: 8px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
 .footer-ig { font-size: 10px; color: var(--gris); }
-
+ 
 @media(max-width:600px) {
   .header { padding: 18px 20px; }
   .footer { padding: 12px 20px; }
@@ -342,9 +335,9 @@ input[type=range]::-webkit-slider-thumb {
 </style>
 </head>
 <body>
-
+ 
 <div class="progress-bar" id="progress"></div>
-
+ 
 <div class="header">
   <div>
     <div class="logo-name">César Cárdenas</div>
@@ -352,9 +345,9 @@ input[type=range]::-webkit-slider-thumb {
   </div>
   <div class="step-counter">Pregunta <span id="cur-step">1</span> de <span id="tot-steps">16</span></div>
 </div>
-
+ 
 <div class="form-wrap">
-
+ 
   <!-- ── STEP 1: Nombre ── -->
   <div class="step active" id="s1">
     <div class="step-tag">Datos de contacto</div>
@@ -369,7 +362,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(1)">Continuar →</button>
     </div>
   </div>
-
+ 
   <!-- ── STEP 2: WhatsApp ── -->
   <div class="step" id="s2">
     <div class="step-tag">Datos de contacto</div>
@@ -384,7 +377,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(2)">Continuar →</button>
     </div>
   </div>
-
+ 
   <!-- ── STEP 3: Email ── -->
   <div class="step" id="s3">
     <div class="step-tag">Datos de contacto</div>
@@ -399,7 +392,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(3)">Continuar →</button>
     </div>
   </div>
-
+ 
   <!-- ── STEP 4: Tipo de servicio ── -->
   <div class="step" id="s4">
     <div class="step-tag">Tu proyecto</div>
@@ -429,7 +422,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(4)">Continuar →</button>
     </div>
   </div>
-
+ 
   <!-- ── STEP 5: Tipo de proyecto ── -->
   <div class="step" id="s5">
     <div class="step-tag">Tu proyecto</div>
@@ -467,7 +460,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(5)">Continuar →</button>
     </div>
   </div>
-
+ 
   <!-- ── STEP 6: ¿Ya tienes el espacio? ── -->
   <div class="step" id="s6">
     <div class="step-tag">Tu proyecto</div>
@@ -484,7 +477,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(6)">Continuar →</button>
     </div>
   </div>
-
+ 
   <!-- ── STEP 7: Ciudad / Estado ── -->
   <div class="step" id="s7">
     <div class="step-tag">Tu proyecto</div>
@@ -499,7 +492,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(9)">Continuar →</button>
     </div>
   </div>
-
+ 
   <!-- ── STEP 8: Dirección ── -->
   <div class="step" id="s8">
     <div class="step-tag">Tu proyecto</div>
@@ -514,7 +507,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(10)">Continuar →</button>
     </div>
   </div>
-
+ 
   <!-- ── STEP 9: Metros cuadrados ── -->
   <div class="step" id="s9">
     <div class="step-tag">Tu proyecto</div>
@@ -528,10 +521,10 @@ input[type=range]::-webkit-slider-thumb {
     </div>
     <div class="nav">
       <button class="btn-back" onclick="back(9)">← Atrás</button>
-      <button class="btn-next" onclick="next(9)">Continuar →</button>
+      <button class="btn-next" onclick="answers.m2=document.getElementById('f-m2').value; showStep(10)">Continuar →</button>
     </div>
   </div>
-
+ 
   <!-- ── STEP 8: Etapa actual ── -->
   <div class="step" id="s10">
     <div class="step-tag">Tu proyecto</div>
@@ -548,7 +541,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(10)">Continuar →</button>
     </div>
   </div>
-
+ 
   <!-- ── STEP 9: Experiencia previa ── -->
   <div class="step" id="s11">
     <div class="step-tag">Tu experiencia</div>
@@ -563,7 +556,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(11)">Continuar →</button>
     </div>
   </div>
-
+ 
   <!-- ── STEP 10: Presupuesto ── -->
   <div class="step" id="s12">
     <div class="step-tag">Tu inversión</div>
@@ -583,7 +576,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(12)">Continuar →</button>
     </div>
   </div>
-
+ 
   <!-- ── STEP 11: Plazo ── -->
   <div class="step" id="s13">
     <div class="step-tag">Tu inversión</div>
@@ -601,7 +594,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(13)">Continuar →</button>
     </div>
   </div>
-
+ 
   <!-- ── STEP 12: Planos ── -->
   <div class="step" id="s14">
     <div class="step-tag">Documentación</div>
@@ -618,7 +611,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(14)">Continuar →</button>
     </div>
   </div>
-
+ 
   <!-- ── STEP 13: Cómo nos conoció ── -->
   <div class="step" id="s15">
     <div class="step-tag">Último paso</div>
@@ -655,7 +648,7 @@ input[type=range]::-webkit-slider-thumb {
       <button class="btn-next" onclick="next(15)">Continuar →</button>
     </div>
   </div>
-
+ 
   <!-- ── STEP 14: Comentarios ── -->
   <div class="step" id="s16">
     <div class="step-tag">Casi listo</div>
@@ -671,7 +664,7 @@ input[type=range]::-webkit-slider-thumb {
       </button>
     </div>
   </div>
-
+ 
   <!-- ── THANK YOU ── -->
   <div class="thankyou" id="thankyou">
     <div class="ty-icon">✦</div>
@@ -685,25 +678,25 @@ input[type=range]::-webkit-slider-thumb {
       Ig. @cesarcardenas_arq · hello@cesarcardenasarq.com
     </div>
   </div>
-
+ 
 </div>
-
+ 
 <div class="footer">
   <div class="footer-tag">Bring me all your dreams you dreamer.</div>
   <div class="footer-ig">Ig. @cesarcardenas_arq</div>
 </div>
-
+ 
 <script>
 const TOTAL = 16;
 let current = 1;
 const answers = {};
-
+ 
 function updateProgress() {
   const pct = ((current - 1) / TOTAL) * 100;
   document.getElementById('progress').style.width = pct + '%';
   document.getElementById('cur-step').textContent = current;
 }
-
+ 
 function showStep(n) {
   document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
   const el = document.getElementById('s' + n);
@@ -712,11 +705,11 @@ function showStep(n) {
   updateProgress();
   window.scrollTo(0, 0);
 }
-
+ 
 function validate(n) {
   const err = document.getElementById('err-' + n);
   let ok = true;
-
+ 
   if (n === 1) {
     const v = document.getElementById('f-nombre').value.trim();
     ok = v.length > 1;
@@ -743,23 +736,23 @@ function validate(n) {
   } else if ([4,5,6,10,11,12,13,14,15].includes(n)) {
     ok = !!answers['step' + n];
   }
-
+ 
   if (err) {
     if (!ok) err.classList.add('show');
     else err.classList.remove('show');
   }
   return ok;
 }
-
+ 
 function next(n) {
   if (!validate(n)) return;
   if (n < TOTAL) showStep(n + 1);
 }
-
+ 
 function back(n) {
   if (n > 1) showStep(n - 1);
 }
-
+ 
 function selectOpt(step, el, val) {
   document.querySelectorAll('#opts-' + step + ' .opt').forEach(o => o.classList.remove('selected'));
   el.classList.add('selected');
@@ -769,7 +762,7 @@ function selectOpt(step, el, val) {
   // Auto-advance after short delay
   setTimeout(() => next(step), 260);
 }
-
+ 
 function selectSimple(step, el, val) {
   document.querySelectorAll('#opts-' + step + ' .opt-simple').forEach(o => o.classList.remove('selected'));
   el.classList.add('selected');
@@ -778,24 +771,24 @@ function selectSimple(step, el, val) {
   if (err) err.classList.remove('show');
   setTimeout(() => next(step), 260);
 }
-
+ 
 function updateRange(val) {
   const label = val >= 1500 ? '1,500 m²+' : val + ' m²';
   document.getElementById('range-val').textContent = label;
   answers['m2'] = val;
 }
-
+ 
 function submit() {
   answers['notas'] = document.getElementById('f-notas').value.trim();
   if(document.getElementById('f-ciudad')) answers['ciudad'] = document.getElementById('f-ciudad').value.trim();
   if(document.getElementById('f-direccion')) answers['direccion'] = document.getElementById('f-direccion').value.trim();
-
+ 
   // Show thank you immediately — don't wait for Tally
   document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
   document.getElementById('thankyou').classList.add('active');
   document.getElementById('progress').style.width = '100%';
   document.getElementById('cur-step').textContent = TOTAL;
-
+ 
   // Send to Tally
   const tallyData = {
     "¿Cuál es tu nombre completo?": answers.nombre || '',
@@ -815,7 +808,7 @@ function submit() {
     "¿Cómo nos conociste?": answers.step15 || '',
     "¿Algo más que quieras contarnos?": answers.notas || '',
   };
-
+ 
   fetch('https://tally.so/r/BzjzPe', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -823,7 +816,7 @@ function submit() {
     mode: 'no-cors'
   }).catch(err => console.log('Tally error:', err));
 }
-
+ 
 // Enter key support
 document.addEventListener('keydown', e => {
   if (e.key === 'Enter' && current <= TOTAL) {
@@ -834,840 +827,11 @@ document.addEventListener('keydown', e => {
     }
   }
 });
-
+ 
 // Init
 updateProgress();
 updateRange(300);
 </script>
 </body>
 </html>
-
-:root {
-  --navy: #1B2B4B;
-  --navy-dark: #111D33;
-  --navy-mid: #2A3F6B;
-  --gold: #B8963E;
-  --gold-light: #9A7A2E;
-  --gold-pale: #F8F3E8;
-  --white: #FFFFFF;
-  --cream: #F8F5F0;
-  --ink: #1A1714;
-  --gris: #7A7A80;
-  --gris-light: #E8E8EC;
-  --green: #2D6A4F;
-  --green-light: #D8EFE4;
-  --error: #C0392B;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'Jost', sans-serif;
-  background: var(--white);
-  color: var(--ink);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ── Progress bar ── */
-.progress-bar {
-  position: fixed;
-  top: 0; left: 0;
-  height: 3px;
-  background: var(--gold);
-  transition: width .4s cubic-bezier(.4,0,.2,1);
-  z-index: 100;
-}
-
-/* ── Header ── */
-.header {
-  padding: 24px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid var(--gris-light);
-  flex-shrink: 0;
-  background: var(--white);
-}
-.logo-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 17px;
-  font-weight: 400;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--navy);
-}
-.logo-sub {
-  font-size: 8px;
-  letter-spacing: .3em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-top: 2px;
-}
-.step-counter {
-  font-size: 11px;
-  color: var(--gris);
-  letter-spacing: .06em;
-}
-.step-counter span {
-  color: var(--navy);
-  font-weight: 500;
-}
-
-/* ── Main layout ── */
-.form-wrap {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 24px;
-  background: var(--white);
-}
-
-/* ── Step ── */
-.step {
-  display: none;
-  max-width: 560px;
-  width: 100%;
-  animation: fadeUp .35s ease;
-}
-.step.active { display: block; }
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.step-tag {
-  font-size: 10px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 10px;
-  font-weight: 500;
-}
-.step-q {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(26px, 5vw, 36px);
-  font-weight: 400;
-  line-height: 1.2;
-  color: var(--navy);
-  margin-bottom: 8px;
-}
-.step-hint {
-  font-size: 13px;
-  color: var(--gris);
-  margin-bottom: 28px;
-  line-height: 1.6;
-}
-
-/* ── Text inputs ── */
-.input-wrap { margin-bottom: 16px; }
-.input-wrap input,
-.input-wrap textarea {
-  width: 100%;
-  background: var(--cream);
-  border: 1.5px solid var(--gris-light);
-  border-radius: 4px;
-  padding: 15px 18px;
-  font-family: 'Jost', sans-serif;
-  font-size: 16px;
-  color: var(--ink);
-  outline: none;
-  transition: border-color .2s, background .2s;
-  -webkit-appearance: none;
-}
-.input-wrap input::placeholder,
-.input-wrap textarea::placeholder { color: var(--gris); }
-.input-wrap input:focus,
-.input-wrap textarea:focus {
-  border-color: var(--navy);
-  background: var(--white);
-}
-.input-wrap textarea { resize: none; height: 110px; line-height: 1.6; }
-
-/* ── Option cards ── */
-.options { display: grid; gap: 9px; margin-bottom: 8px; }
-.options.cols2 { grid-template-columns: 1fr 1fr; }
-.options.cols3 { grid-template-columns: 1fr 1fr 1fr; }
-
-.opt {
-  border: 1.5px solid var(--gris-light);
-  border-radius: 5px;
-  padding: 14px 16px;
-  cursor: pointer;
-  transition: all .18s;
-  background: var(--cream);
-  user-select: none;
-}
-.opt:hover { border-color: var(--gold); background: var(--gold-pale); }
-.opt.selected { border-color: var(--navy); background: #EEF1F7; }
-.opt-title { font-size: 13.5px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
-.opt-sub { font-size: 11px; color: var(--gris); line-height: 1.4; }
-.opt.selected .opt-title { color: var(--navy); }
-
-/* ── Simple radio options ── */
-.opt-simple {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  border: 1.5px solid var(--gris-light);
-  border-radius: 5px;
-  padding: 13px 16px;
-  cursor: pointer;
-  transition: all .18s;
-  background: var(--cream);
-  user-select: none;
-  font-size: 14px;
-  color: var(--ink);
-}
-.opt-simple:hover { border-color: var(--gold); background: var(--gold-pale); }
-.opt-simple.selected { border-color: var(--navy); background: #EEF1F7; color: var(--navy); font-weight: 500; }
-.opt-dot {
-  width: 18px; height: 18px;
-  border-radius: 50%;
-  border: 2px solid var(--gris-light);
-  flex-shrink: 0;
-  transition: all .18s;
-  display: flex; align-items: center; justify-content: center;
-}
-.opt-simple.selected .opt-dot {
-  border-color: var(--navy);
-  background: var(--navy);
-}
-.opt-simple.selected .opt-dot::after {
-  content: '';
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: white;
-}
-
-/* ── Range slider ── */
-.range-wrap { margin-bottom: 8px; }
-.range-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--gris); margin-top: 10px; }
-.range-value {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 32px;
-  color: var(--navy);
-  margin-bottom: 16px;
-  font-weight: 500;
-}
-input[type=range] {
-  width: 100%;
-  -webkit-appearance: none;
-  height: 3px;
-  background: var(--gris-light);
-  border-radius: 2px;
-  outline: none;
-}
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 22px; height: 22px;
-  border-radius: 50%;
-  background: var(--navy);
-  cursor: pointer;
-  border: 3px solid white;
-  box-shadow: 0 0 0 1.5px var(--navy);
-}
-
-/* ── Navigation ── */
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 28px;
-}
-.btn-next {
-  background: var(--navy);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 14px 32px;
-  font-family: 'Jost', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all .18s;
-}
-.btn-next:hover { background: var(--navy-mid); transform: translateY(-1px); }
-.btn-next:disabled { opacity: .35; cursor: not-allowed; transform: none; }
-.btn-next.submit { background: var(--green); }
-.btn-next.submit:hover { background: #236040; }
-.btn-back {
-  background: transparent;
-  border: none;
-  color: var(--gris);
-  font-family: 'Jost', sans-serif;
-  font-size: 12px;
-  letter-spacing: .06em;
-  cursor: pointer;
-  padding: 8px 0;
-  transition: color .18s;
-}
-.btn-back:hover { color: var(--ink); }
-.btn-back.hidden { visibility: hidden; }
-
-/* ── Thank you ── */
-.thankyou {
-  display: none;
-  text-align: center;
-  max-width: 460px;
-  width: 100%;
-  animation: fadeUp .4s ease;
-}
-.thankyou.active { display: block; }
-.ty-icon {
-  width: 56px; height: 56px;
-  border-radius: 50%;
-  background: var(--green-light);
-  border: 1px solid rgba(45,106,79,.2);
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 22px;
-  font-size: 22px;
-}
-.ty-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 36px;
-  font-weight: 400;
-  color: var(--navy);
-  margin-bottom: 12px;
-}
-.ty-sub {
-  font-size: 14px;
-  color: var(--gris);
-  line-height: 1.8;
-  margin-bottom: 28px;
-}
-.ty-detail { font-size: 11px; color: var(--gris); letter-spacing: .04em; }
-
-/* ── Error ── */
-.err-msg { font-size: 11px; color: var(--error); margin-top: 6px; display: none; }
-.err-msg.show { display: block; }
-
-/* ── Footer ── */
-.footer {
-  padding: 14px 40px;
-  border-top: 1px solid var(--gris-light);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-shrink: 0;
-  background: var(--white);
-}
-.footer-tag { font-size: 8px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
-.footer-ig { font-size: 10px; color: var(--gris); }
-
-@media(max-width:600px) {
-  .header { padding: 18px 20px; }
-  .footer { padding: 12px 20px; }
-  .options.cols2, .options.cols3 { grid-template-columns: 1fr; }
-  .step-q { font-size: 26px; }
-  .form-wrap { padding: 28px 20px; }
-}
-</style>
-</head>
-<body>
-
-<div class="progress-bar" id="progress"></div>
-
-<div class="header">
-  <div>
-    <div class="logo-name">César Cárdenas</div>
-    <div class="logo-sub">Arquitectos</div>
-  </div>
-  <div class="step-counter">Pregunta <span id="cur-step">1</span> de <span id="tot-steps">16</span></div>
-</div>
-
-<div class="form-wrap">
-
-  <!-- ── STEP 1: Nombre ── -->
-  <div class="step active" id="s1">
-    <div class="step-tag">Datos de contacto</div>
-    <div class="step-q">¿Cuál es tu nombre completo?</div>
-    <div class="step-hint">Nos gusta saber con quién estamos hablando desde el inicio.</div>
-    <div class="input-wrap">
-      <input type="text" id="f-nombre" placeholder="Tu nombre completo" autocomplete="name">
-    </div>
-    <div class="err-msg" id="err-1">Por favor ingresa tu nombre.</div>
-    <div class="nav">
-      <button class="btn-back hidden">←</button>
-      <button class="btn-next" onclick="next(1)">Continuar →</button>
-    </div>
-  </div>
-
-  <!-- ── STEP 2: WhatsApp ── -->
-  <div class="step" id="s2">
-    <div class="step-tag">Datos de contacto</div>
-    <div class="step-q">¿Cuál es tu WhatsApp?</div>
-    <div class="step-hint">Te contactaremos por este medio para agendar tu consulta.</div>
-    <div class="input-wrap">
-      <input type="tel" id="f-wa" placeholder="+52 844 000 0000" autocomplete="tel">
-    </div>
-    <div class="err-msg" id="err-2">Por favor ingresa tu número de WhatsApp.</div>
-    <div class="nav">
-      <button class="btn-back" onclick="back(2)">← Atrás</button>
-      <button class="btn-next" onclick="next(2)">Continuar →</button>
-    </div>
-  </div>
-
-  <!-- ── STEP 3: Email ── -->
-  <div class="step" id="s3">
-    <div class="step-tag">Datos de contacto</div>
-    <div class="step-q">¿Cuál es tu correo electrónico?</div>
-    <div class="step-hint">Te enviaremos la confirmación de tu solicitud.</div>
-    <div class="input-wrap">
-      <input type="email" id="f-email" placeholder="correo@ejemplo.com" autocomplete="email">
-    </div>
-    <div class="err-msg" id="err-3">Por favor ingresa un correo válido.</div>
-    <div class="nav">
-      <button class="btn-back" onclick="back(3)">← Atrás</button>
-      <button class="btn-next" onclick="next(3)">Continuar →</button>
-    </div>
-  </div>
-
-  <!-- ── STEP 4: Tipo de servicio ── -->
-  <div class="step" id="s4">
-    <div class="step-tag">Tu proyecto</div>
-    <div class="step-q">¿Qué tipo de servicio necesitas?</div>
-    <div class="step-hint">Selecciona el que mejor describe lo que buscas.</div>
-    <div class="options cols2" id="opts-4">
-      <div class="opt" onclick="selectOpt(4,this,'Diseño de interiores')">
-        <div class="opt-title">Diseño de interiores</div>
-        <div class="opt-sub">Intervenimos cada espacio habitable de tu proyecto</div>
-      </div>
-      <div class="opt" onclick="selectOpt(4,this,'Diseño arquitectónico')">
-        <div class="opt-title">Diseño arquitectónico</div>
-        <div class="opt-sub">Proyecto completo desde la concepción del espacio</div>
-      </div>
-      <div class="opt" onclick="selectOpt(4,this,'Paquete arq. + interiores')">
-        <div class="opt-title">Arq. + Interiores</div>
-        <div class="opt-sub">El alcance completo — arquitectura e interiores</div>
-      </div>
-      <div class="opt" onclick="selectOpt(4,this,'Rediseño de fachada')">
-        <div class="opt-title">Rediseño de fachada</div>
-        <div class="opt-sub">Nueva identidad exterior para tu residencia</div>
-      </div>
-    </div>
-    <div class="err-msg" id="err-4">Por favor selecciona una opción.</div>
-    <div class="nav">
-      <button class="btn-back" onclick="back(4)">← Atrás</button>
-      <button class="btn-next" onclick="next(4)">Continuar →</button>
-    </div>
-  </div>
-
-  <!-- ── STEP 5: Tipo de proyecto ── -->
-  <div class="step" id="s5">
-    <div class="step-tag">Tu proyecto</div>
-    <div class="step-q">¿Qué tipo de proyecto es?</div>
-    <div class="step-hint">Esto nos ayuda a entender el contexto y los alcances.</div>
-    <div class="options cols3" id="opts-5">
-      <div class="opt" onclick="selectOpt(5,this,'Residencial')">
-        <div class="opt-title">Residencial</div>
-        <div class="opt-sub">Casa o departamento</div>
-      </div>
-      <div class="opt" onclick="selectOpt(5,this,'Oficina / corporativo')">
-        <div class="opt-title">Oficina</div>
-        <div class="opt-sub">Corporativo o despacho</div>
-      </div>
-      <div class="opt" onclick="selectOpt(5,this,'Comercial')">
-        <div class="opt-title">Comercial</div>
-        <div class="opt-sub">Local, restaurante, tienda</div>
-      </div>
-      <div class="opt" onclick="selectOpt(5,this,'Hotelero / hospitalidad')">
-        <div class="opt-title">Hospitalidad</div>
-        <div class="opt-sub">Hotel, boutique, spa</div>
-      </div>
-      <div class="opt" onclick="selectOpt(5,this,'Mixto')">
-        <div class="opt-title">Mixto</div>
-        <div class="opt-sub">Combina usos</div>
-      </div>
-      <div class="opt" onclick="selectOpt(5,this,'Otro')">
-        <div class="opt-title">Otro</div>
-        <div class="opt-sub">Lo describimos después</div>
-      </div>
-    </div>
-    <div class="err-msg" id="err-5">Por favor selecciona una opción.</div>
-    <div class="nav">
-      <button class="btn-back" onclick="back(5)">← Atrás</button>
-      <button class="btn-next" onclick="next(5)">Continuar →</button>
-    </div>
-  </div>
-
-  <!-- ── STEP 6: ¿Ya tienes el espacio? ── -->
-  <div class="step" id="s6">
-    <div class="step-tag">Tu proyecto</div>
-    <div class="step-q">¿Ya cuentas con el espacio, terreno o inmueble?</div>
-    <div class="step-hint">Nos ayuda a entender en qué etapa estás.</div>
-    <div class="options" id="opts-6" style="grid-template-columns:1fr">
-      <div class="opt-simple" onclick="selectSimple(6,this,'Sí, ya lo tengo')"><div class="opt-dot"></div>Sí, ya lo tengo</div>
-      <div class="opt-simple" onclick="selectSimple(6,this,'Estoy en proceso de adquirirlo')"><div class="opt-dot"></div>Estoy en proceso de adquirirlo</div>
-      <div class="opt-simple" onclick="selectSimple(6,this,'Aún no, estoy explorando opciones')"><div class="opt-dot"></div>Aún no, estoy explorando opciones</div>
-    </div>
-    <div class="err-msg" id="err-6">Por favor selecciona una opción.</div>
-    <div class="nav">
-      <button class="btn-back" onclick="back(6)">← Atrás</button>
-      <button class="btn-next" onclick="next(6)">Continuar →</button>
-    </div>
-  </div>
-
-  <!-- ── STEP 7: Ciudad / Estado ── -->
-  <div class="step" id="s7">
-    <div class="step-tag">Tu proyecto</div>
-    <div class="step-q">¿En qué ciudad y estado se encuentra el proyecto?</div>
-    <div class="step-hint">Nos ayuda a entender el mercado y la logística del proyecto.</div>
-    <div class="input-wrap">
-      <input type="text" id="f-ciudad" placeholder="Ej. Saltillo, Coahuila">
-    </div>
-    <div class="err-msg" id="err-7">Por favor ingresa la ciudad y estado.</div>
-    <div class="nav">
-      <button class="btn-back" onclick="back(9)">← Atrás</button>
-      <button class="btn-next" onclick="next(9)">Continuar →</button>
-    </div>
-  </div>
-
-  <!-- ── STEP 8: Dirección ── -->
-  <div class="step" id="s8">
-    <div class="step-tag">Tu proyecto</div>
-    <div class="step-q">¿Cuál es la dirección o zona del proyecto?</div>
-    <div class="step-hint">No necesita ser exacta — colonia o fraccionamiento es suficiente.</div>
-    <div class="input-wrap">
-      <input type="text" id="f-direccion" placeholder="Ej. Fracc. Villas del Pedregal, Saltillo">
-    </div>
-    <div class="err-msg" id="err-8">Por favor ingresa la dirección o zona.</div>
-    <div class="nav">
-      <button class="btn-back" onclick="back(8)">← Atrás</button>
-      <button class="btn-next" onclick="next(10)">Continuar →</button>
-    </div>
-  </div>
-
-  <!-- ── STEP 9: Metros cuadrados ── -->
-
-  <div class="step" id="s7">
-    <div class="step-tag">Tu proyecto</div>
-    <div class="step-q">¿Cuántos metros cuadrados aproximados tiene el proyecto?</div>
-    <div class="step-hint">No necesita ser exacto — un estimado es suficiente.</div>
-    <div class="range-wrap">
-      <div class="range-value" id="range-val">300 m²</div>
-      <input type="range" id="f-m2" min="50" max="1500" step="25" value="300"
-        oninput="updateRange(this.value)">
-      <div class="range-labels"><span>50 m²</span><span>750 m²</span><span>1,500 m²+</span></div>
-    </div>
-    <div class="nav">
-      <button class="btn-back" onclick="back(9)">← Atrás</button>
-      <button class="btn-next" onclick="next(9)">Continuar →</button>
-    </div>
-  </div>
-
-  <!-- ── STEP 8: Etapa actual ── -->
-  <div class="step" id="s8">
-    <div class="step-tag">Tu proyecto</div>
-    <div class="step-q">¿En qué etapa se encuentra el proyecto actualmente?</div>
-    <div class="options" id="opts-10" style="grid-template-columns:1fr">
-      <div class="opt-simple" onclick="selectSimple(10,this,'Idea / planeación inicial')"><div class="opt-dot"></div>Idea / planeación inicial</div>
-      <div class="opt-simple" onclick="selectSimple(10,this,'Listo para iniciar diseño')"><div class="opt-dot"></div>Listo para iniciar diseño</div>
-      <div class="opt-simple" onclick="selectSimple(10,this,'En construcción — necesito diseño ahora')"><div class="opt-dot"></div>En construcción — necesito diseño ahora</div>
-      <div class="opt-simple" onclick="selectSimple(10,this,'Proyecto ya construido — remodelación')"><div class="opt-dot"></div>Proyecto ya construido — remodelación</div>
-    </div>
-    <div class="err-msg" id="err-8">Por favor selecciona una opción.</div>
-    <div class="nav">
-      <button class="btn-back" onclick="back(8)">← Atrás</button>
-      <button class="btn-next" onclick="next(10)">Continuar →</button>
-    </div>
-  </div>
-
-  <!-- ── STEP 9: Experiencia previa ── -->
-  <div class="step" id="s11">
-    <div class="step-tag">Tu experiencia</div>
-    <div class="step-q">¿Has trabajado anteriormente con un arquitecto o despacho de diseño?</div>
-    <div class="options" id="opts-11" style="grid-template-columns:1fr">
-      <div class="opt-simple" onclick="selectSimple(11,this,'Sí, en proyectos anteriores')"><div class="opt-dot"></div>Sí, en proyectos anteriores</div>
-      <div class="opt-simple" onclick="selectSimple(11,this,'No, este sería mi primer proyecto')"><div class="opt-dot"></div>No, este sería mi primer proyecto</div>
-    </div>
-    <div class="err-msg" id="err-11">Por favor selecciona una opción.</div>
-    <div class="nav">
-      <button class="btn-back" onclick="back(11)">← Atrás</button>
-      <button class="btn-next" onclick="next(11)">Continuar →</button>
-    </div>
-  </div>
-
-  <!-- ── STEP 10: Presupuesto ── -->
-  <div class="step" id="s12">
-    <div class="step-tag">Tu inversión</div>
-    <div class="step-q">¿Cuál es el presupuesto estimado para construcción o remodelación?</div>
-    <div class="step-hint">Esta información es confidencial y nos ayuda a proponer las mejores soluciones para tu proyecto.</div>
-    <div class="options" id="opts-12" style="grid-template-columns:1fr">
-      <div class="opt-simple" onclick="selectSimple(12,this,'Menos de $1,000,000 MXN')"><div class="opt-dot"></div>Menos de $1,000,000 MXN</div>
-      <div class="opt-simple" onclick="selectSimple(12,this,'$1,000,000 – $3,000,000 MXN')"><div class="opt-dot"></div>$1,000,000 – $3,000,000 MXN</div>
-      <div class="opt-simple" onclick="selectSimple(12,this,'$3,000,000 – $6,000,000 MXN')"><div class="opt-dot"></div>$3,000,000 – $6,000,000 MXN</div>
-      <div class="opt-simple" onclick="selectSimple(12,this,'$6,000,000 – $12,000,000 MXN')"><div class="opt-dot"></div>$6,000,000 – $12,000,000 MXN</div>
-      <div class="opt-simple" onclick="selectSimple(12,this,'Más de $12,000,000 MXN')"><div class="opt-dot"></div>Más de $12,000,000 MXN</div>
-      <div class="opt-simple" onclick="selectSimple(12,this,'Aún no lo tengo definido')"><div class="opt-dot"></div>Aún no lo tengo definido</div>
-    </div>
-    <div class="err-msg" id="err-12">Por favor selecciona una opción.</div>
-    <div class="nav">
-      <button class="btn-back" onclick="back(12)">← Atrás</button>
-      <button class="btn-next" onclick="next(12)">Continuar →</button>
-    </div>
-  </div>
-
-  <!-- ── STEP 11: Plazo ── -->
-  <div class="step" id="s13">
-    <div class="step-tag">Tu inversión</div>
-    <div class="step-q">¿Cuándo te gustaría iniciar el proyecto?</div>
-    <div class="options" id="opts-13" style="grid-template-columns:1fr">
-      <div class="opt-simple" onclick="selectSimple(13,this,'Lo antes posible')"><div class="opt-dot"></div>Lo antes posible</div>
-      <div class="opt-simple" onclick="selectSimple(13,this,'En los próximos 1–3 meses')"><div class="opt-dot"></div>En los próximos 1–3 meses</div>
-      <div class="opt-simple" onclick="selectSimple(13,this,'En 3–6 meses')"><div class="opt-dot"></div>En 3–6 meses</div>
-      <div class="opt-simple" onclick="selectSimple(13,this,'Más de 6 meses')"><div class="opt-dot"></div>Más de 6 meses</div>
-      <div class="opt-simple" onclick="selectSimple(13,this,'Solo estoy explorando por ahora')"><div class="opt-dot"></div>Solo estoy explorando por ahora</div>
-    </div>
-    <div class="err-msg" id="err-13">Por favor selecciona una opción.</div>
-    <div class="nav">
-      <button class="btn-back" onclick="back(13)">← Atrás</button>
-      <button class="btn-next" onclick="next(13)">Continuar →</button>
-    </div>
-  </div>
-
-  <!-- ── STEP 12: Planos ── -->
-  <div class="step" id="s14">
-    <div class="step-tag">Documentación</div>
-    <div class="step-q">¿Cuentas con plano o medidas del lugar?</div>
-    <div class="options" id="opts-14" style="grid-template-columns:1fr">
-      <div class="opt-simple" onclick="selectSimple(14,this,'Sí, tengo planos en digital')"><div class="opt-dot"></div>Sí, tengo planos en digital</div>
-      <div class="opt-simple" onclick="selectSimple(14,this,'Tengo medidas aproximadas')"><div class="opt-dot"></div>Tengo medidas aproximadas</div>
-      <div class="opt-simple" onclick="selectSimple(14,this,'No, necesitaré levantamiento de sitio')"><div class="opt-dot"></div>No, necesitaré levantamiento de sitio</div>
-      <div class="opt-simple" onclick="selectSimple(14,this,'No sé con qué cuento exactamente')"><div class="opt-dot"></div>No sé con qué cuento exactamente</div>
-    </div>
-    <div class="err-msg" id="err-14">Por favor selecciona una opción.</div>
-    <div class="nav">
-      <button class="btn-back" onclick="back(14)">← Atrás</button>
-      <button class="btn-next" onclick="next(14)">Continuar →</button>
-    </div>
-  </div>
-
-  <!-- ── STEP 13: Cómo nos conoció ── -->
-  <div class="step" id="s15">
-    <div class="step-tag">Último paso</div>
-    <div class="step-q">¿Cómo nos conociste?</div>
-    <div class="options cols2" id="opts-15">
-      <div class="opt" onclick="selectOpt(15,this,'Instagram')">
-        <div class="opt-title">Instagram</div>
-        <div class="opt-sub">@cesarcardenas_arq</div>
-      </div>
-      <div class="opt" onclick="selectOpt(15,this,'Recomendación')">
-        <div class="opt-title">Recomendación</div>
-        <div class="opt-sub">Alguien me habló de ustedes</div>
-      </div>
-      <div class="opt" onclick="selectOpt(15,this,'Google')">
-        <div class="opt-title">Google</div>
-        <div class="opt-sub">Búsqueda en internet</div>
-      </div>
-      <div class="opt" onclick="selectOpt(15,this,'Ya los conozco / proyecto anterior')">
-        <div class="opt-title">Ya los conozco</div>
-        <div class="opt-sub">Proyecto anterior o evento</div>
-      </div>
-      <div class="opt" onclick="selectOpt(15,this,'Desarrolladora o arquitecto referidor')">
-        <div class="opt-title">Desarrolladora</div>
-        <div class="opt-sub">Me los recomendó un desarrollador</div>
-      </div>
-      <div class="opt" onclick="selectOpt(15,this,'Otro')">
-        <div class="opt-title">Otro</div>
-        <div class="opt-sub">Una forma diferente</div>
-      </div>
-    </div>
-    <div class="err-msg" id="err-15">Por favor selecciona una opción.</div>
-    <div class="nav">
-      <button class="btn-back" onclick="back(15)">← Atrás</button>
-      <button class="btn-next" onclick="next(15)">Continuar →</button>
-    </div>
-  </div>
-
-  <!-- ── STEP 14: Comentarios ── -->
-  <div class="step" id="s16">
-    <div class="step-tag">Casi listo</div>
-    <div class="step-q">¿Hay algo más que quieras contarnos sobre tu proyecto?</div>
-    <div class="step-hint">Cualquier detalle adicional nos ayuda a preparar mejor tu consulta. Este campo es opcional.</div>
-    <div class="input-wrap">
-      <textarea id="f-notas" placeholder="Cuéntanos lo que quieras — visión, inspiración, retos, lo que sea..."></textarea>
-    </div>
-    <div class="nav">
-      <button class="btn-back" onclick="back(16)">← Atrás</button>
-      <button class="btn-next" onclick="submit()" style="background:var(--green);color:white">
-        Enviar solicitud ✓
-      </button>
-    </div>
-  </div>
-
-  <!-- ── THANK YOU ── -->
-  <div class="thankyou" id="thankyou">
-    <div class="ty-icon">✦</div>
-    <div class="ty-title">Recibimos tu solicitud</div>
-    <div class="ty-sub">
-      Gracias por tu interés en trabajar con nosotros.<br>
-      Nos pondremos en contacto contigo <strong style="color:var(--navy)">muy pronto</strong>
-      para agendar tu consulta inicial.
-    </div>
-    <div class="ty-detail">
-      Ig. @cesarcardenas_arq · hello@cesarcardenasarq.com
-    </div>
-  </div>
-
-</div>
-
-<div class="footer">
-  <div class="footer-tag">Bring me all your dreams you dreamer.</div>
-  <div class="footer-ig">Ig. @cesarcardenas_arq</div>
-</div>
-
-<script>
-const TOTAL = 16;
-let current = 1;
-const answers = {};
-
-function updateProgress() {
-  const pct = ((current - 1) / TOTAL) * 100;
-  document.getElementById('progress').style.width = pct + '%';
-  document.getElementById('cur-step').textContent = current;
-}
-
-function showStep(n) {
-  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-  const el = document.getElementById('s' + n);
-  if (el) el.classList.add('active');
-  current = n;
-  updateProgress();
-  window.scrollTo(0, 0);
-}
-
-function validate(n) {
-  const err = document.getElementById('err-' + n);
-  let ok = true;
-
-  if (n === 1) {
-    const v = document.getElementById('f-nombre').value.trim();
-    ok = v.length > 1;
-    answers['nombre'] = v;
-  } else if (n === 2) {
-    const v = document.getElementById('f-wa').value.trim();
-    ok = v.length > 7;
-    answers['whatsapp'] = v;
-  } else if (n === 3) {
-    const v = document.getElementById('f-email').value.trim();
-    ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-    answers['email'] = v;
-  } else if (n === 7) {
-    const v = document.getElementById('f-ciudad').value.trim();
-    ok = v.length > 1;
-    answers['ciudad'] = v;
-  } else if (n === 8) {
-    const v = document.getElementById('f-direccion').value.trim();
-    ok = v.length > 1;
-    answers['direccion'] = v;
-  } else if (n === 9) {
-    answers['m2'] = document.getElementById('f-m2').value;
-    return true;
-  } else if ([4,5,6,10,11,12,13,14,15].includes(n)) {
-    ok = !!answers['step' + n];
-  }
-
-  if (err) {
-    if (!ok) err.classList.add('show');
-    else err.classList.remove('show');
-  }
-  return ok;
-}
-
-function next(n) {
-  if (!validate(n)) return;
-  if (n < TOTAL) showStep(n + 1);
-}
-
-function back(n) {
-  if (n > 1) showStep(n - 1);
-}
-
-function selectOpt(step, el, val) {
-  document.querySelectorAll('#opts-' + step + ' .opt').forEach(o => o.classList.remove('selected'));
-  el.classList.add('selected');
-  answers['step' + step] = val;
-  const err = document.getElementById('err-' + step);
-  if (err) err.classList.remove('show');
-  // Auto-advance after short delay
-  setTimeout(() => next(step), 260);
-}
-
-function selectSimple(step, el, val) {
-  document.querySelectorAll('#opts-' + step + ' .opt-simple').forEach(o => o.classList.remove('selected'));
-  el.classList.add('selected');
-  answers['step' + step] = val;
-  const err = document.getElementById('err-' + step);
-  if (err) err.classList.remove('show');
-  setTimeout(() => next(step), 260);
-}
-
-function updateRange(val) {
-  const label = val >= 1500 ? '1,500 m²+' : val + ' m²';
-  document.getElementById('range-val').textContent = label;
-  answers['m2'] = val;
-}
-
-function submit() {
-  answers['notas'] = document.getElementById('f-notas').value.trim();
-  if(document.getElementById('f-ciudad')) answers['ciudad'] = document.getElementById('f-ciudad').value.trim();
-  if(document.getElementById('f-direccion')) answers['direccion'] = document.getElementById('f-direccion').value.trim();
-
-  // Show thank you immediately — don't wait for Tally
-  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-  document.getElementById('thankyou').classList.add('active');
-  document.getElementById('progress').style.width = '100%';
-  document.getElementById('cur-step').textContent = TOTAL;
-
-  // Send to Tally
-  const tallyData = {
-    "¿Cuál es tu nombre completo?": answers.nombre || '',
-    "¿Cuál es tu WhatsApp?": answers.whatsapp || '',
-    "¿Cuál es tu correo electrónico?": answers.email || '',
-    "¿Qué tipo de servicio necesitas?": answers.step4 || '',
-    "¿Qué tipo de proyecto es?": answers.step5 || '',
-    "¿Ya cuentas con el espacio?": answers.step6 || '',
-    "¿En qué ciudad y estado?": answers.ciudad || '',
-    "¿Dirección o zona del proyecto?": answers.direccion || '',
-    "¿Cuántos metros cuadrados aproximados?": answers.m2 || '',
-    "¿En qué etapa está el proyecto?": answers.step10 || '',
-    "¿Has trabajado con un arquitecto antes?": answers.step11 || '',
-    "¿Presupuesto estimado de construcción?": answers.step12 || '',
-    "¿Cuándo quieres iniciar?": answers.step13 || '',
-    "¿Cuentas con plano o medidas?": answers.step14 || '',
-    "¿Cómo nos conociste?": answers.step15 || '',
-    "¿Algo más que quieras contarnos?": answers.notas || '',
-  };
-
-  fetch('https://tally.so/r/BzjzPe', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(tallyData),
-    mode: 'no-cors'
-  }).catch(err => console.log('Tally error:', err));
-}
-
-// Enter key support
-document.addEventListener('keydown', e => {
-  if (e.key === 'Enter' && current <= TOTAL) {
-    const s = document.getElementById('s' + current);
-    if (s && s.classList.contains('active')) {
-      if (current < TOTAL) next(current);
-      else submit();
-    }
-  }
-});
-
-// Init
-updateProgress();
-updateRange(300);
-</script>
-</body>
-</html>
+ 
