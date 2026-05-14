@@ -786,41 +786,39 @@ function updateRange(val) {
 
 function submit() {
   answers['notas'] = document.getElementById('f-notas').value.trim();
-  if(document.getElementById('f-ciudad')) answers['ciudad'] = document.getElementById('f-ciudad').value.trim();
-  if(document.getElementById('f-direccion')) answers['direccion'] = document.getElementById('f-direccion').value.trim();
 
-  // Show thank you immediately — don't wait for Tally
+  // Show thank you immediately
   document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
   document.getElementById('thankyou').classList.add('active');
   document.getElementById('progress').style.width = '100%';
   document.getElementById('cur-step').textContent = TOTAL;
 
-  // Send to Tally
-  const tallyData = {
-    "¿Cuál es tu nombre completo?": answers.nombre || '',
-    "¿Cuál es tu WhatsApp?": answers.whatsapp || '',
-    "¿Cuál es tu correo electrónico?": answers.email || '',
-    "¿Qué tipo de servicio necesitas?": answers.step4 || '',
-    "¿Qué tipo de proyecto es?": answers.step5 || '',
-    "¿Ya cuentas con el espacio?": answers.step6 || '',
-    "¿En qué ciudad y estado?": answers.ciudad || '',
-    "¿Dirección o zona del proyecto?": answers.direccion || '',
-    "¿Cuántos metros cuadrados aproximados?": answers.m2 || '',
-    "¿En qué etapa está el proyecto?": answers.step10 || '',
-    "¿Has trabajado con un arquitecto antes?": answers.step11 || '',
-    "¿Presupuesto estimado de construcción?": answers.step12 || '',
-    "¿Cuándo quieres iniciar?": answers.step13 || '',
-    "¿Cuentas con plano o medidas?": answers.step14 || '',
-    "¿Cómo nos conociste?": answers.step15 || '',
-    "¿Algo más que quieras contarnos?": answers.notas || '',
-  };
+  // Build Tally URL with all answers as query params
+  const params = new URLSearchParams({
+    'Cual es tu nombre completo': answers.nombre || '',
+    'Cual es tu whatsapp': answers.whatsapp || '',
+    'Cual es tu email': answers.email || '',
+    'Que tipo de servicio necesitas': answers.step4 || '',
+    'Que tipo de proyecto es': answers.step5 || '',
+    'Ya cuentas con el espacio terreno o inmueble': answers.step6 || '',
+    'En que ciudad y estado se encuentra el proyecto': answers.ciudad || '',
+    'Cual es la direccion o zona del proyecto': answers.direccion || '',
+    'Cuantos metros cuadrados aproximados tiene el proyecto': answers.m2 || '',
+    'En que etapa se encuentra el proyecto actualmente': answers.step10 || '',
+    'Has trabajado anteriormente con un arquitecto o despacho de diseno': answers.step11 || '',
+    'Cual es el presupuesto estimado para construccion o remodelacion': answers.step12 || '',
+    'Cuando te gustaria iniciar el proyecto': answers.step13 || '',
+    'Cuentas con plano o medidas del lugar': answers.step14 || '',
+    'Como nos conociste': answers.step15 || '',
+    'Hay algo mas que quieras contarnos sobre tu proyecto': answers.notas || '',
+  });
 
-  fetch('https://tally.so/r/BzjzPe', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(tallyData),
-    mode: 'no-cors'
-  }).catch(err => console.log('Tally error:', err));
+  // Submit to Tally via hidden iframe
+  const iframe = document.createElement('iframe');
+  iframe.style.display = 'none';
+  iframe.src = 'https://tally.so/r/BzjzPe?' + params.toString();
+  document.body.appendChild(iframe);
+  setTimeout(() => document.body.removeChild(iframe), 5000);
 }
 
 // Enter key support
